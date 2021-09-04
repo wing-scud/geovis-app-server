@@ -1,0 +1,13 @@
+{
+    "port": 8092,
+    "database": "mongodb://49.234.121.120:27017/geovis-mobile",
+    "tempFilePath": "public/cache/fileTemp/",
+    "weatherAddress": {
+        "//": "http://www.weather.com.cn/data/sk/101010100.html",
+        "currentWeatherDetail": "http://www.weather.com.cn/data/sk/",
+        "//": "http://t.weather.itboy.net/api/weather/city/101120201",
+        "15dayWeather": "http://t.weather.itboy.net/api/weather/city/",
+        "//": "http://www.weather.com.cn/data/cityinfo/101010100.html",
+        "currentWeatherBrief": "http://www.weather.com.cn/data/cityinfo/"
+    }
+}

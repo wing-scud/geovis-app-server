@@ -1,0 +1,6 @@
+{
+    "jwtSecret": "geovis-app",
+    "jwtTempTime": "1d",
+    "jwtLongTime": "100d",
+    "profilePhotoPath":"public/user/profilePhoto/"
+}

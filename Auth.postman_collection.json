@@ -1,0 +1,1474 @@
+{
+	"info": {
+		"_postman_id": "57507ff4-14f4-4c5e-b266-8f433a765abc",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "basesvc",
+			"item": [
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "file",
+							"item": [
+								{
+									"name": "upload",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "files",
+													"type": "file",
+													"src": "/home/spes/Pictures/avatar.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://{{host}}:9000/api/file/upload",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"file",
+												"upload"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{host}}:9000/api/file/list/export",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"file",
+												"list",
+												"export"
+											]
+										},
+										"description": "`api/file/list/{path/of/sth}`.\n\n**exp**:\n- `api/file/list/`\n  list root folder.\n- `api/file/list/images` \n  list `/images`, assuming `images` is a folder.\n- `api/file/list/docs/sample.txt` \n  shows info of `/docs/sample.txt`, assuming `sample.txt` is a file in folder `/doc`."
+									},
+									"response": []
+								},
+								{
+									"name": "download",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{host}}:9000/api/file/download/2021-04-26/avatar.png",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"file",
+												"download",
+												"2021-04-26",
+												"avatar.png"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "job",
+							"item": [
+								{
+									"name": "sync_down_mbtiles",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:9000/api/job/sync/down/mbtiles?layer=world_imagery&name=world_imagery_02&minlevel=0&maxlevel=2&minx=-20037508.342789244&maxx=20037508.342789244&miny=-20037508.342780735&maxy=20037508.342780710",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"job",
+												"sync",
+												"down",
+												"mbtiles"
+											],
+											"query": [
+												{
+													"key": "layer",
+													"value": "world_imagery",
+													"description": "下载图层"
+												},
+												{
+													"key": "name",
+													"value": "world_imagery_02",
+													"description": "下载文件名，不包括后缀"
+												},
+												{
+													"key": "minlevel",
+													"value": "0",
+													"description": "最小层级"
+												},
+												{
+													"key": "maxlevel",
+													"value": "2",
+													"description": "最大层级"
+												},
+												{
+													"key": "minx",
+													"value": "-20037508.342789244",
+													"description": "最小经度，采用图层坐标系"
+												},
+												{
+													"key": "maxx",
+													"value": "20037508.342789244",
+													"description": "最大经度，采用图层坐标系"
+												},
+												{
+													"key": "miny",
+													"value": "-20037508.342780735",
+													"description": "最小纬度，采用图层坐标系"
+												},
+												{
+													"key": "maxy",
+													"value": "20037508.342780710",
+													"description": "最大纬度，采用图层坐标系"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sync_down",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{host}}:9000/api/job/sync/gaode/down/mbtiles",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"job",
+												"sync",
+												"gaode",
+												"down",
+												"mbtiles"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "layer",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{host}}:9000/api/layer",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"layer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add layer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "gaode",
+													"type": "text"
+												},
+												{
+													"key": "store",
+													"value": "local_fs",
+													"type": "text"
+												},
+												{
+													"key": "crs",
+													"value": "epsg:3857",
+													"type": "text"
+												},
+												{
+													"key": "layer_type",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "data_type",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "tilesize",
+													"value": "256",
+													"type": "text"
+												},
+												{
+													"key": "tiledist",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "format",
+													"value": "jpeg",
+													"type": "text"
+												},
+												{
+													"key": "bnds",
+													"value": "-180,-90,180,90",
+													"type": "text"
+												},
+												{
+													"key": "lvls",
+													"value": "0,3",
+													"type": "text"
+												},
+												{
+													"key": "layers",
+													"value": "gaode",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "layers",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "http://{{host}}:9000/api/layer/gaode",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"layer",
+												"gaode"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "api_test",
+													"type": "text"
+												},
+												{
+													"key": "store",
+													"value": "base",
+													"type": "text"
+												},
+												{
+													"key": "crs",
+													"value": "epsg:3857",
+													"type": "text"
+												},
+												{
+													"key": "layer_type",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "data_type",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "tilesize",
+													"value": "256",
+													"type": "text"
+												},
+												{
+													"key": "tiledist",
+													"value": "0",
+													"type": "text"
+												},
+												{
+													"key": "format",
+													"value": "jpeg",
+													"type": "text"
+												},
+												{
+													"key": "bnds",
+													"value": "-180,-90,180,90",
+													"type": "text"
+												},
+												{
+													"key": "lvls",
+													"value": "0,20",
+													"type": "text"
+												},
+												{
+													"key": "layers",
+													"value": "gaode",
+													"type": "text"
+												},
+												{
+													"key": "layers",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "http://{{host}}:9000/api/layer",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"layer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "info",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://{{host}}:9000/api/layer/gaode",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "9000",
+											"path": [
+												"api",
+												"layer",
+												"gaode"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "get_avatar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:9000/api/user/avatar",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user_info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:9000/api/user/info",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set_avatar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/home/spes/Pictures/20200803102356573.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}:9000/api/user/avatar",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "0001",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "xiaowang",
+											"type": "text"
+										},
+										{
+											"key": "rememberMe",
+											"value": "false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "49.234.121.120:8091/api/user/login",
+									"host": [
+										"49",
+										"234",
+										"121",
+										"120"
+									],
+									"port": "8091",
+									"path": [
+										"api",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "cy",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"disabled": true
+										},
+										{
+											"key": "rememberMe",
+											"value": "false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:9000/api/user/logout",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{host}}:9000/api/user/register?name=hahaha2&password=123&sex=male&nickname=rua&phone=1111&main=111@111.11&zip_code=000000",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"register"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "hahaha2"
+										},
+										{
+											"key": "password",
+											"value": "123"
+										},
+										{
+											"key": "sex",
+											"value": "male"
+										},
+										{
+											"key": "nickname",
+											"value": "rua"
+										},
+										{
+											"key": "phone",
+											"value": "1111"
+										},
+										{
+											"key": "main",
+											"value": "111@111.11"
+										},
+										{
+											"key": "zip_code",
+											"value": "000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "name_check",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:9000/api/user/name/check?name=xxxxx",
+									"host": [
+										"{{host}}"
+									],
+									"port": "9000",
+									"path": [
+										"api",
+										"user",
+										"name",
+										"check"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "xxxxx"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "web",
+					"item": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/user/login?username=cy&password=123&rememberMe=false",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "cy"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								},
+								{
+									"key": "rememberMe",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sample",
+			"item": [
+				{
+					"name": "test",
+					"item": [
+						{
+							"name": "test_path",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9091/sm/test/path",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"sm",
+										"test",
+										"path"
+									]
+								},
+								"description": "test complicated path."
+							},
+							"response": []
+						},
+						{
+							"name": "test_ip",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9091/sm/test/ip",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"sm",
+										"test",
+										"ip"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "node",
+			"item": [
+				{
+					"name": "weather",
+					"item": [
+						{
+							"name": "external",
+							"item": [
+								{
+									"name": "currentWeatherBrief",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": null
+									},
+									"response": []
+								},
+								{
+									"name": "currentWeatherDetail",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": null
+									},
+									"response": []
+								},
+								{
+									"name": "15dayWeather",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": null
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "dayDetail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"101190401\":\"111\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8092/weather/dayDetail",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"weather",
+										"dayDetail"
+									],
+									"query": [
+										{
+											"key": "code",
+											"value": "101190401",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mapbox-phenomena-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "mapboxScalar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8091/weather/mapboxScalar?type=json&name=wind&time=1621922400",
+									"host": [
+										"localhost"
+									],
+									"port": "8091",
+									"path": [
+										"weather",
+										"mapboxScalar"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "json"
+										},
+										{
+											"key": "name",
+											"value": "wind"
+										},
+										{
+											"key": "time",
+											"value": "1621922400"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "pngOut",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "mapboxVector",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "dayBrief",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8092/weather/dayBrief?code=101190401",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"weather",
+										"dayBrief"
+									],
+									"query": [
+										{
+											"key": "code",
+											"value": "101190401"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "15dayWeather",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"account\":\"00002\",\r\n    \"password\":\"123456\",\r\n    \"rememberMe\":false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8092/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setProfilePhoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDIiLCJpYXQiOjE2MjE5MDQyNzgsImV4cCI6MTYyMTk5MDY3OH0.3KxUg5y7uSt_pPKG-amNWE7oRhkDdG8CgL3jpel3je8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "profilePhoto",
+											"type": "file",
+											"src": "/C:/Users/web01/Pictures/defaultProfilePhoto.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8092/user/setProfilePhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"user",
+										"setProfilePhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "account",
+											"value": "00002",
+											"type": "text"
+										},
+										{
+											"key": "nickname",
+											"value": "testProfilePhoto",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "postCode",
+											"value": "101190405",
+											"type": "text"
+										},
+										{
+											"key": "sex",
+											"value": "man",
+											"type": "text"
+										},
+										{
+											"key": "birthday",
+											"value": "2021-05-24",
+											"type": "text"
+										},
+										{
+											"key": "profilePhoto",
+											"type": "file",
+											"src": "/C:/Users/web01/Pictures/test1.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8092/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getProfilePhoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDIiLCJpYXQiOjE2MjE5MDQyNzgsImV4cCI6MTYyMTk5MDY3OH0.3KxUg5y7uSt_pPKG-amNWE7oRhkDdG8CgL3jpel3je8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8092/user/getProfilePhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"user",
+										"getProfilePhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginOut",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8092/user/loginOut",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"user",
+										"loginOut"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "conserve",
+					"item": [
+						{
+							"name": "staredRoute",
+							"item": [
+								{
+									"name": "save---StaredRoute",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"save\",\r\n    \"route\":{\r\n        \"start\":[120,30],\r\n        \"stop\":[122,30],\r\n        \"waypoints\":[\r\n            [120.5,29.3],\r\n            [122,29.7]\r\n        ],\r\n        \"detailed\":[\r\n\r\n        ],\r\n        \"describe\":\"test1\",\r\n        \"createTime\":\"2021-5-25 11:10:55\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editStaredRoute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editStaredRoute"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "remove-StaredRoute",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDIiLCJpYXQiOjE2MjE5MTQ3NDEsImV4cCI6MTYyMjAwMTE0MX0.xKQQr7tVmJppJHSy2GPEgP9b0_6YupP7wZdXvljw0n4",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"get\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editStaredRoute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editStaredRoute"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getList---StaredRoute",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"get\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editStaredRoute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editStaredRoute"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "plotScene",
+							"item": [
+								{
+									"name": "getList",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"getList\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editPlotScene",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editPlotScene"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getFile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"getFile\",\r\n    \"id\":\"60aca66369747458b8737cd9\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editPlotScene",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editPlotScene"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "type",
+													"value": "save",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "场景1",
+													"type": "text"
+												},
+												{
+													"key": "createTime",
+													"value": "2021-5-21\"",
+													"type": "text"
+												},
+												{
+													"key": "plotFile",
+													"type": "file",
+													"src": "/C:/Users/web01/Pictures/plot.json"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editPlotScene",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editPlotScene"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "remove",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMDAwMDAyIiwiaWF0IjoxNjIxOTE2NTAzLCJleHAiOjE2MjIwMDI5MDN9._eW1pcJtWPX8O-9TWJelJjIvwWr6DhMsF-oAoxHAN60",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\":\"remove\",\r\n    \"id\":\"60aca66369747458b8737cd9\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/conserve/editPlotScene",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"conserve",
+												"editPlotScene"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost"
+		}
+	]
+}

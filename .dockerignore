@@ -1,0 +1,6 @@
+node_modules
+public/weather/mapbox
+public/weather/tiff
+public/cache/weather/cacheMapbox
+public/cache/weather/cachePng
+public/cache/weather/cacheTiff

@@ -1,0 +1,14 @@
+/node_modules/
+/public/cache/
+/public/weather/
+/public/user/
+/public/conserve/
+# public/weather/mapbox/
+# public/weather/tiff/
+# public/cache/weather/cacheMapbox/
+# public/cache/weather/cachePng/
+# public/cache/weather/cacheTiff/
+# public/cache/fileTemp/
+# public/conserve/gisInfo/
+# public/conserve/plotScene/
+# public/conserve/trail/

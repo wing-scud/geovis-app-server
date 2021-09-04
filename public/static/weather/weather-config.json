@@ -1,0 +1,131 @@
+{
+    "fileMap": {
+        "temperature": {
+            "name": "温度",
+            "fileName": "ncep_global_temperature",
+            "type": "scalar",
+            "variable": "tmpsfc",
+            "descripe": "地面空气温度，K"
+        },
+        "wind": {
+            "name": "风",
+            "fileName": "ncep_global_uvWind",
+            "type": "vector",
+            "variable": [
+                "ugrd10m",
+                "vgrd10m"
+            ],
+            "descripe": "在10m处的风速"
+        },
+        "rain": {
+            "name": "降水量",
+            "fileName": "ncep_global_rainRate",
+            "type": "scalar",
+            "variable": "pratesfc",
+            "descripe": "降水通量，kg m-2 s-1"
+        }
+    },
+    "pathMap": {
+        "baseNcPath": "public/weather/nc/new",
+        "baseMapoxPath": "public/weather/mapbox",
+        "cacheMapox": "public/cache/weather/cacheMapbox",
+        "cachePng": "public/cache/weather/cachePng",
+        "cacheTiff": "public/cache/weather/cacheTiff",
+        "colorBasePath": "public/static/weather/color",
+        "tiffBasePath": "public/weather/tiff"
+    },
+    "colorMap": {
+        "temperature": [
+            [
+                152,
+                229,
+                238,
+                255
+            ],
+            [
+                2,
+                100,
+                207,
+                255
+            ],
+            [
+                228,
+                6,
+                0,
+                255
+            ],
+            [
+                249,
+                228,
+                10,
+                255
+            ]
+        ],
+        "wind": [
+            [
+                62,
+                116,
+                165,
+                255
+            ],
+            [
+                79,
+                160,
+                94,
+                255
+            ],
+            [
+                161,
+                124,
+                63,
+                255
+            ],
+            [
+                143,
+                64,
+                95,
+                255
+            ]
+        ],
+        "rainFlux": [
+            [
+                236,
+                244,
+                10,
+                255
+            ],
+            [
+                148,
+                213,
+                188,
+                255
+            ],
+            [
+                78,
+                154,
+                202,
+                255
+            ]
+        ],
+        "salt": [
+            [
+                248,
+                244,
+                238,
+                255
+            ],
+            [
+                95,
+                192,
+                195,
+                255
+            ],
+            [
+                0,
+                92,
+                137,
+                255
+            ]
+        ]
+    }
+}
